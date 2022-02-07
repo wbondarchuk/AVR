@@ -1,0 +1,31 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega16A"</DEVICE>
+ <WORKING_DIR>C:\Users\Владимир\Documents\Atmel Studio\7.0\p\p\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>F:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
+  <DIR>F:\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\p\p\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>F:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16Adef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\p\p\Debug\p.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>p.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>p.map</FILE>
+  <FILE>p.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <start><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\p\p\main.asm</FILE><LINE>14</LINE></start>
+  <On><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\p\p\main.asm</FILE><LINE>28</LINE></On>
+  <Delay><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\p\p\main.asm</FILE><LINE>44</LINE></Delay>
+  <Off><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\p\p\main.asm</FILE><LINE>36</LINE></Off>
+  <Delay_loop><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\p\p\main.asm</FILE><LINE>48</LINE></Delay_loop>
+ </LABELS>
+</ASSEMBLER_INFO>

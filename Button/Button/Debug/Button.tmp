@@ -1,0 +1,31 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega16A"</DEVICE>
+ <WORKING_DIR>C:\Users\Владимир\Documents\Atmel Studio\7.0\Button\Button\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>F:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
+  <DIR>F:\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\Button\Button\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>F:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16Adef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\Button\Button\Debug\Button.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Button.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Button.map</FILE>
+  <FILE>Button.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <start><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\Button\Button\main.asm</FILE><LINE>13</LINE></start>
+  <loop><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\Button\Button\main.asm</FILE><LINE>31</LINE></loop>
+  <Delay><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\Button\Button\main.asm</FILE><LINE>57</LINE></Delay>
+  <lamp><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\Button\Button\main.asm</FILE><LINE>51</LINE></lamp>
+  <Delay_loop><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\Button\Button\main.asm</FILE><LINE>62</LINE></Delay_loop>
+ </LABELS>
+</ASSEMBLER_INFO>

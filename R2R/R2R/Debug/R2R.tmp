@@ -1,0 +1,31 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega16A"</DEVICE>
+ <WORKING_DIR>C:\Users\Владимир\Documents\Atmel Studio\7.0\R2R\R2R\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>F:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
+  <DIR>F:\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\R2R\R2R\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>F:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16Adef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\R2R\R2R\Debug\R2R.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>R2R.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>R2R.map</FILE>
+  <FILE>R2R.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <start><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\R2R\R2R\main.asm</FILE><LINE>15</LINE></start>
+  <ADC_switcher><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\R2R\R2R\main.asm</FILE><LINE>50</LINE></ADC_switcher>
+  <loop><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\R2R\R2R\main.asm</FILE><LINE>45</LINE></loop>
+  <lamp1><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\R2R\R2R\main.asm</FILE><LINE>62</LINE></lamp1>
+  <lamp0><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\R2R\R2R\main.asm</FILE><LINE>54</LINE></lamp0>
+ </LABELS>
+</ASSEMBLER_INFO>

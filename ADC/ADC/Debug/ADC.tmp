@@ -1,0 +1,30 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega16A"</DEVICE>
+ <WORKING_DIR>C:\Users\Владимир\Documents\Atmel Studio\7.0\ADC\ADC\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>F:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
+  <DIR>F:\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\ADC\ADC\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>F:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16Adef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\ADC\ADC\Debug\ADC.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>ADC.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>ADC.map</FILE>
+  <FILE>ADC.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <start><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\ADC\ADC\main.asm</FILE><LINE>15</LINE></start>
+  <timer><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\ADC\ADC\main.asm</FILE><LINE>23</LINE></timer>
+  <adc_int><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\ADC\ADC\main.asm</FILE><LINE>44</LINE></adc_int>
+  <adc_set><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\ADC\ADC\main.asm</FILE><LINE>29</LINE></adc_set>
+ </LABELS>
+</ASSEMBLER_INFO>
