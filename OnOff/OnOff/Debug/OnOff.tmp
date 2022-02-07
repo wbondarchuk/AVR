@@ -1,0 +1,31 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega16"</DEVICE>
+ <WORKING_DIR>C:\Users\Владимир\Documents\Atmel Studio\7.0\OnOff\OnOff\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>F:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
+  <DIR>F:\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\OnOff\OnOff\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>F:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\OnOff\OnOff\Debug\OnOff.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>OnOff.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>OnOff.map</FILE>
+  <FILE>OnOff.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <start><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\OnOff\OnOff\main.asm</FILE><LINE>54</LINE></start>
+  <on><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\OnOff\OnOff\main.asm</FILE><LINE>88</LINE></on>
+  <interrupt><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\OnOff\OnOff\main.asm</FILE><LINE>84</LINE></interrupt>
+  <off><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\OnOff\OnOff\main.asm</FILE><LINE>97</LINE></off>
+  <return><FILE>C:\Users\Владимир\Documents\Atmel Studio\7.0\OnOff\OnOff\main.asm</FILE><LINE>103</LINE></return>
+ </LABELS>
+</ASSEMBLER_INFO>
