@@ -1,0 +1,545 @@
+
+Display.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000002d0  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000000c  00800060  000002d0  00000344  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  00000350  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000380  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000078  00000000  00000000  000003bc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000a9b  00000000  00000000  00000434  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000006c6  00000000  00000000  00000ecf  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000481  00000000  00000000  00001595  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000100  00000000  00000000  00001a18  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000402  00000000  00000000  00001b18  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000003ae  00000000  00000000  00001f1a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000068  00000000  00000000  000022c8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+   8:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+   c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  10:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  14:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  18:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  1c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  20:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  24:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  28:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  2c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  30:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  34:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  38:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  3c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  40:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  44:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  48:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  4c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  50:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	e0 ed       	ldi	r30, 0xD0	; 208
+  68:	f2 e0       	ldi	r31, 0x02	; 2
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	ac 36       	cpi	r26, 0x6C	; 108
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+  76:	0e 94 f8 00 	call	0x1f0	; 0x1f0 <main>
+  7a:	0c 94 66 01 	jmp	0x2cc	; 0x2cc <_exit>
+
+0000007e <__bad_interrupt>:
+  7e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000082 <strob>:
+
+//Стробирующий вход
+//Дрыгом напряжения на этой линии мы даем понять дисплею
+// что нужно забирать/отдавать данные с/на шину данных.
+void strob() {
+	PORTB |= (1 << E); //установили Е=1
+  82:	88 b3       	in	r24, 0x18	; 24
+  84:	84 60       	ori	r24, 0x04	; 4
+  86:	88 bb       	out	0x18, r24	; 24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  88:	8f ec       	ldi	r24, 0xCF	; 207
+  8a:	97 e0       	ldi	r25, 0x07	; 7
+  8c:	01 97       	sbiw	r24, 0x01	; 1
+  8e:	f1 f7       	brne	.-4      	; 0x8c <strob+0xa>
+  90:	00 c0       	rjmp	.+0      	; 0x92 <strob+0x10>
+  92:	00 00       	nop
+	_delay_ms(1); 
+	PORTB &= ~(1 << E); //установили Е=0
+  94:	88 b3       	in	r24, 0x18	; 24
+  96:	8b 7f       	andi	r24, 0xFB	; 251
+  98:	88 bb       	out	0x18, r24	; 24
+  9a:	08 95       	ret
+
+0000009c <clear_cmd>:
+}
+
+//Очистка экрана.
+void clear_cmd() {
+	PORTA = (1 << 0); 
+  9c:	81 e0       	ldi	r24, 0x01	; 1
+  9e:	8b bb       	out	0x1b, r24	; 27
+	strob();
+  a0:	0e 94 41 00 	call	0x82	; 0x82 <strob>
+  a4:	2f ef       	ldi	r18, 0xFF	; 255
+  a6:	80 e7       	ldi	r24, 0x70	; 112
+  a8:	92 e0       	ldi	r25, 0x02	; 2
+  aa:	21 50       	subi	r18, 0x01	; 1
+  ac:	80 40       	sbci	r24, 0x00	; 0
+  ae:	90 40       	sbci	r25, 0x00	; 0
+  b0:	e1 f7       	brne	.-8      	; 0xaa <clear_cmd+0xe>
+  b2:	00 c0       	rjmp	.+0      	; 0xb4 <clear_cmd+0x18>
+  b4:	00 00       	nop
+  b6:	08 95       	ret
+
+000000b8 <reset_cursor_cmd>:
+}
+
+
+//сброс сдвигов, Счетчик адреса на 0
+void reset_cursor_cmd() {
+	PORTA = (1 << 1); 
+  b8:	82 e0       	ldi	r24, 0x02	; 2
+  ba:	8b bb       	out	0x1b, r24	; 27
+	strob();
+  bc:	0e 94 41 00 	call	0x82	; 0x82 <strob>
+  c0:	08 95       	ret
+
+000000c2 <shift_screen_setting_cmd>:
+
+// 2- Настройка сдвига экрана и курсора
+void shift_screen_setting_cmd(uint8_t id, uint8_t shift) {
+	uint8_t ID = 1; // inc address counter
+	uint8_t S = 0; 	// сдвиг экрана
+	PORTA = (1 << 2) | (id << ID) | (shift << S);
+  c2:	90 e0       	ldi	r25, 0x00	; 0
+  c4:	88 0f       	add	r24, r24
+  c6:	99 1f       	adc	r25, r25
+  c8:	84 60       	ori	r24, 0x04	; 4
+  ca:	86 2b       	or	r24, r22
+  cc:	8b bb       	out	0x1b, r24	; 27
+	strob();
+  ce:	0e 94 41 00 	call	0x82	; 0x82 <strob>
+  d2:	08 95       	ret
+
+000000d4 <display_setting_cmd>:
+//3 - Настройка режима отображения
+void display_setting_cmd(uint8_t onDisp, uint8_t onCursor, uint8_t sqCursor) {
+	uint8_t D = 2; // 1 - on display
+	uint8_t C = 1; // 1 - cursor
+	uint8_t B = 0; // 1 - black square
+	PORTA = (1 << 3) | (onDisp << D) | (onCursor << C) | (sqCursor << B);
+  d4:	90 e0       	ldi	r25, 0x00	; 0
+  d6:	88 0f       	add	r24, r24
+  d8:	99 1f       	adc	r25, r25
+  da:	88 0f       	add	r24, r24
+  dc:	99 1f       	adc	r25, r25
+  de:	70 e0       	ldi	r23, 0x00	; 0
+  e0:	66 0f       	add	r22, r22
+  e2:	77 1f       	adc	r23, r23
+  e4:	88 60       	ori	r24, 0x08	; 8
+  e6:	68 2b       	or	r22, r24
+  e8:	64 2b       	or	r22, r20
+  ea:	6b bb       	out	0x1b, r22	; 27
+	strob();
+  ec:	0e 94 41 00 	call	0x82	; 0x82 <strob>
+  f0:	08 95       	ret
+
+000000f2 <move_cursor_cmd>:
+}
+
+//4 - Сдвиг курсора или экрана, в зависимости от битов
+void move_cursor_cmd(uint8_t dir) {
+  f2:	98 2f       	mov	r25, r24
+	PORTB &= ~(1 << E);
+  f4:	88 b3       	in	r24, 0x18	; 24
+  f6:	8b 7f       	andi	r24, 0xFB	; 251
+  f8:	88 bb       	out	0x18, r24	; 24
+	uint8_t SC = 3; // 0 - move cursor
+	uint8_t RL = 2; // 1/0 - right/left
+	PORTA = 0;
+  fa:	1b ba       	out	0x1b, r1	; 27
+	
+	PORTA |= (1 << 4) | (0 << SC) | (dir << RL);
+  fc:	2b b3       	in	r18, 0x1b	; 27
+  fe:	89 2f       	mov	r24, r25
+ 100:	90 e0       	ldi	r25, 0x00	; 0
+ 102:	88 0f       	add	r24, r24
+ 104:	99 1f       	adc	r25, r25
+ 106:	88 0f       	add	r24, r24
+ 108:	99 1f       	adc	r25, r25
+ 10a:	82 2b       	or	r24, r18
+ 10c:	80 61       	ori	r24, 0x10	; 16
+ 10e:	8b bb       	out	0x1b, r24	; 27
+	strob();
+ 110:	0e 94 41 00 	call	0x82	; 0x82 <strob>
+ 114:	08 95       	ret
+
+00000116 <LCD_init>:
+	//выбираем число линий/ ширину 4/8 бит и размер картинки
+	uint8_t DL = 4; // data width: 8bit
+	uint8_t N = 3;  // 2 string
+	uint8_t F = 2;  // 5x8
+	
+	PORTB &= ~(1 << E);
+ 116:	88 b3       	in	r24, 0x18	; 24
+ 118:	8b 7f       	andi	r24, 0xFB	; 251
+ 11a:	88 bb       	out	0x18, r24	; 24
+	PORTA = (1 << 5) | (1 << DL) | (1 << N) | (0 << F);
+ 11c:	88 e3       	ldi	r24, 0x38	; 56
+ 11e:	8b bb       	out	0x1b, r24	; 27
+	strob();
+ 120:	0e 94 41 00 	call	0x82	; 0x82 <strob>
+
+	reset_cursor_cmd();
+ 124:	0e 94 5c 00 	call	0xb8	; 0xb8 <reset_cursor_cmd>
+ 128:	08 95       	ret
+
+0000012a <print_ASCII>:
+}
+
+void print_ASCII(char sym) {
+	PORTB = (1 << RS);
+ 12a:	91 e0       	ldi	r25, 0x01	; 1
+ 12c:	98 bb       	out	0x18, r25	; 24
+	PORTA = sym;
+ 12e:	8b bb       	out	0x1b, r24	; 27
+	strob();
+ 130:	0e 94 41 00 	call	0x82	; 0x82 <strob>
+	PORTB &= ~(1 << RS);
+ 134:	88 b3       	in	r24, 0x18	; 24
+ 136:	8e 7f       	andi	r24, 0xFE	; 254
+ 138:	88 bb       	out	0x18, r24	; 24
+ 13a:	08 95       	ret
+
+0000013c <print_string>:
+}
+
+void print_string(const char* str) {
+ 13c:	0f 93       	push	r16
+ 13e:	1f 93       	push	r17
+ 140:	cf 93       	push	r28
+ 142:	8c 01       	movw	r16, r24
+	unsigned char i = 0;
+ 144:	c0 e0       	ldi	r28, 0x00	; 0
+	while (str[i] != '\0')
+ 146:	03 c0       	rjmp	.+6      	; 0x14e <print_string+0x12>
+		print_ASCII(str[i++]);
+ 148:	cf 5f       	subi	r28, 0xFF	; 255
+ 14a:	0e 94 95 00 	call	0x12a	; 0x12a <print_ASCII>
+	PORTB &= ~(1 << RS);
+}
+
+void print_string(const char* str) {
+	unsigned char i = 0;
+	while (str[i] != '\0')
+ 14e:	f8 01       	movw	r30, r16
+ 150:	ec 0f       	add	r30, r28
+ 152:	f1 1d       	adc	r31, r1
+ 154:	80 81       	ld	r24, Z
+ 156:	81 11       	cpse	r24, r1
+ 158:	f7 cf       	rjmp	.-18     	; 0x148 <print_string+0xc>
+		print_ASCII(str[i++]);
+}
+ 15a:	cf 91       	pop	r28
+ 15c:	1f 91       	pop	r17
+ 15e:	0f 91       	pop	r16
+ 160:	08 95       	ret
+
+00000162 <add_new_symbol>:
+
+
+//добавляем знак калькулятора
+void add_new_symbol() {
+ 162:	cf 93       	push	r28
+ 164:	df 93       	push	r29
+	PORTB = (0 << RS);
+ 166:	18 ba       	out	0x18, r1	; 24
+	// Выбираем в CGRAM адрес 0х08 — как раз начало второго символа
+	// что на один символ уходит 8 байт
+	PORTA = 0b01001000; 
+ 168:	88 e4       	ldi	r24, 0x48	; 72
+ 16a:	8b bb       	out	0x1b, r24	; 27
+	strob();
+ 16c:	0e 94 41 00 	call	0x82	; 0x82 <strob>
+	PORTB = (1 << RS);
+ 170:	81 e0       	ldi	r24, 0x01	; 1
+ 172:	88 bb       	out	0x18, r24	; 24
+
+	PORTA = 0b00011111;	strob();
+ 174:	cf e1       	ldi	r28, 0x1F	; 31
+ 176:	cb bb       	out	0x1b, r28	; 27
+ 178:	0e 94 41 00 	call	0x82	; 0x82 <strob>
+	PORTA = 0b00010001;	strob();
+ 17c:	d1 e1       	ldi	r29, 0x11	; 17
+ 17e:	db bb       	out	0x1b, r29	; 27
+ 180:	0e 94 41 00 	call	0x82	; 0x82 <strob>
+	PORTA = 0b00010001;	strob();
+ 184:	db bb       	out	0x1b, r29	; 27
+ 186:	0e 94 41 00 	call	0x82	; 0x82 <strob>
+	PORTA = 0b00011111;	strob();
+ 18a:	cb bb       	out	0x1b, r28	; 27
+ 18c:	0e 94 41 00 	call	0x82	; 0x82 <strob>
+	PORTA = 0b00010101;	strob();
+ 190:	d5 e1       	ldi	r29, 0x15	; 21
+ 192:	db bb       	out	0x1b, r29	; 27
+ 194:	0e 94 41 00 	call	0x82	; 0x82 <strob>
+	PORTA = 0b00011111;	strob();
+ 198:	cb bb       	out	0x1b, r28	; 27
+ 19a:	0e 94 41 00 	call	0x82	; 0x82 <strob>
+	PORTA = 0b00010101;	strob();
+ 19e:	db bb       	out	0x1b, r29	; 27
+ 1a0:	0e 94 41 00 	call	0x82	; 0x82 <strob>
+	PORTA = 0b00011111;	strob();
+ 1a4:	cb bb       	out	0x1b, r28	; 27
+ 1a6:	0e 94 41 00 	call	0x82	; 0x82 <strob>
+
+	PORTB = (0 << RS);
+ 1aa:	18 ba       	out	0x18, r1	; 24
+	//переключение адреса на DDRAM 
+	PORTA = 0b10000000; 
+ 1ac:	80 e8       	ldi	r24, 0x80	; 128
+ 1ae:	8b bb       	out	0x1b, r24	; 27
+	strob();
+ 1b0:	0e 94 41 00 	call	0x82	; 0x82 <strob>
+}
+ 1b4:	df 91       	pop	r29
+ 1b6:	cf 91       	pop	r28
+ 1b8:	08 95       	ret
+
+000001ba <print_ASCII_by_num>:
+
+void print_ASCII_by_num(uint8_t num, uint8_t coord) {
+ 1ba:	1f 93       	push	r17
+ 1bc:	cf 93       	push	r28
+ 1be:	df 93       	push	r29
+ 1c0:	18 2f       	mov	r17, r24
+ 1c2:	d6 2f       	mov	r29, r22
+	reset_cursor_cmd();
+ 1c4:	0e 94 5c 00 	call	0xb8	; 0xb8 <reset_cursor_cmd>
+	for (uint8_t i = 0; i < coord; i++)
+ 1c8:	c0 e0       	ldi	r28, 0x00	; 0
+ 1ca:	04 c0       	rjmp	.+8      	; 0x1d4 <print_ASCII_by_num+0x1a>
+		move_cursor_cmd(1);
+ 1cc:	81 e0       	ldi	r24, 0x01	; 1
+ 1ce:	0e 94 79 00 	call	0xf2	; 0xf2 <move_cursor_cmd>
+	strob();
+}
+
+void print_ASCII_by_num(uint8_t num, uint8_t coord) {
+	reset_cursor_cmd();
+	for (uint8_t i = 0; i < coord; i++)
+ 1d2:	cf 5f       	subi	r28, 0xFF	; 255
+ 1d4:	cd 17       	cp	r28, r29
+ 1d6:	d0 f3       	brcs	.-12     	; 0x1cc <print_ASCII_by_num+0x12>
+		move_cursor_cmd(1);
+	PORTB = (1 << RS);
+ 1d8:	81 e0       	ldi	r24, 0x01	; 1
+ 1da:	88 bb       	out	0x18, r24	; 24
+	PORTA = num;
+ 1dc:	1b bb       	out	0x1b, r17	; 27
+	strob();
+ 1de:	0e 94 41 00 	call	0x82	; 0x82 <strob>
+	PORTB &= ~(1 << RS);
+ 1e2:	88 b3       	in	r24, 0x18	; 24
+ 1e4:	8e 7f       	andi	r24, 0xFE	; 254
+ 1e6:	88 bb       	out	0x18, r24	; 24
+}
+ 1e8:	df 91       	pop	r29
+ 1ea:	cf 91       	pop	r28
+ 1ec:	1f 91       	pop	r17
+ 1ee:	08 95       	ret
+
+000001f0 <main>:
+
+int main() {
+	DDRB = 0xff;
+ 1f0:	8f ef       	ldi	r24, 0xFF	; 255
+ 1f2:	87 bb       	out	0x17, r24	; 23
+	DDRA = 0xff;
+ 1f4:	8a bb       	out	0x1a, r24	; 26
+	PORTB = 0x00;
+ 1f6:	18 ba       	out	0x18, r1	; 24
+	
+	LCD_init();
+ 1f8:	0e 94 8b 00 	call	0x116	; 0x116 <LCD_init>
+	clear_cmd();
+ 1fc:	0e 94 4e 00 	call	0x9c	; 0x9c <clear_cmd>
+	shift_screen_setting_cmd(1, 0);
+ 200:	60 e0       	ldi	r22, 0x00	; 0
+ 202:	81 e0       	ldi	r24, 0x01	; 1
+ 204:	0e 94 61 00 	call	0xc2	; 0xc2 <shift_screen_setting_cmd>
+	display_setting_cmd(1, 0, 0);
+ 208:	40 e0       	ldi	r20, 0x00	; 0
+ 20a:	60 e0       	ldi	r22, 0x00	; 0
+ 20c:	81 e0       	ldi	r24, 0x01	; 1
+ 20e:	0e 94 6a 00 	call	0xd4	; 0xd4 <display_setting_cmd>
+	
+	print_string("Stopwatch: ");
+ 212:	80 e6       	ldi	r24, 0x60	; 96
+ 214:	90 e0       	ldi	r25, 0x00	; 0
+ 216:	0e 94 9e 00 	call	0x13c	; 0x13c <print_string>
+	add_new_symbol();
+ 21a:	0e 94 b1 00 	call	0x162	; 0x162 <add_new_symbol>
+	//данные (RS=1), код 01 — символ.
+	print_ASCII_by_num(1, 15);
+ 21e:	6f e0       	ldi	r22, 0x0F	; 15
+ 220:	81 e0       	ldi	r24, 0x01	; 1
+ 222:	0e 94 dd 00 	call	0x1ba	; 0x1ba <print_ASCII_by_num>
+	
+	for (int i = 0 ; ; i++) {
+ 226:	e1 2c       	mov	r14, r1
+ 228:	f1 2c       	mov	r15, r1
+		unsigned int a = i;
+ 22a:	e7 01       	movw	r28, r14
+ 22c:	2f ef       	ldi	r18, 0xFF	; 255
+ 22e:	39 e6       	ldi	r19, 0x69	; 105
+ 230:	88 e1       	ldi	r24, 0x18	; 24
+ 232:	21 50       	subi	r18, 0x01	; 1
+ 234:	30 40       	sbci	r19, 0x00	; 0
+ 236:	80 40       	sbci	r24, 0x00	; 0
+ 238:	e1 f7       	brne	.-8      	; 0x232 <__EEPROM_REGION_LENGTH__+0x32>
+ 23a:	00 c0       	rjmp	.+0      	; 0x23c <__EEPROM_REGION_LENGTH__+0x3c>
+ 23c:	00 00       	nop
+		int digits = 0;
+ 23e:	40 e0       	ldi	r20, 0x00	; 0
+ 240:	50 e0       	ldi	r21, 0x00	; 0
+ 242:	2f c0       	rjmp	.+94     	; 0x2a2 <__EEPROM_REGION_LENGTH__+0xa2>
+		_delay_ms(1000);
+		while(a) {
+			print_ASCII_by_num(a % 10 + '0', 14 - digits++);
+ 244:	8a 01       	movw	r16, r20
+ 246:	0f 5f       	subi	r16, 0xFF	; 255
+ 248:	1f 4f       	sbci	r17, 0xFF	; 255
+ 24a:	9e 01       	movw	r18, r28
+ 24c:	ad ec       	ldi	r26, 0xCD	; 205
+ 24e:	bc ec       	ldi	r27, 0xCC	; 204
+ 250:	0e 94 57 01 	call	0x2ae	; 0x2ae <__umulhisi3>
+ 254:	96 95       	lsr	r25
+ 256:	87 95       	ror	r24
+ 258:	96 95       	lsr	r25
+ 25a:	87 95       	ror	r24
+ 25c:	96 95       	lsr	r25
+ 25e:	87 95       	ror	r24
+ 260:	9c 01       	movw	r18, r24
+ 262:	22 0f       	add	r18, r18
+ 264:	33 1f       	adc	r19, r19
+ 266:	88 0f       	add	r24, r24
+ 268:	99 1f       	adc	r25, r25
+ 26a:	88 0f       	add	r24, r24
+ 26c:	99 1f       	adc	r25, r25
+ 26e:	88 0f       	add	r24, r24
+ 270:	99 1f       	adc	r25, r25
+ 272:	82 0f       	add	r24, r18
+ 274:	93 1f       	adc	r25, r19
+ 276:	9e 01       	movw	r18, r28
+ 278:	28 1b       	sub	r18, r24
+ 27a:	39 0b       	sbc	r19, r25
+ 27c:	c9 01       	movw	r24, r18
+ 27e:	6e e0       	ldi	r22, 0x0E	; 14
+ 280:	64 1b       	sub	r22, r20
+ 282:	80 5d       	subi	r24, 0xD0	; 208
+ 284:	0e 94 dd 00 	call	0x1ba	; 0x1ba <print_ASCII_by_num>
+			a /= 10;
+ 288:	9e 01       	movw	r18, r28
+ 28a:	ad ec       	ldi	r26, 0xCD	; 205
+ 28c:	bc ec       	ldi	r27, 0xCC	; 204
+ 28e:	0e 94 57 01 	call	0x2ae	; 0x2ae <__umulhisi3>
+ 292:	ec 01       	movw	r28, r24
+ 294:	d6 95       	lsr	r29
+ 296:	c7 95       	ror	r28
+ 298:	d6 95       	lsr	r29
+ 29a:	c7 95       	ror	r28
+ 29c:	d6 95       	lsr	r29
+ 29e:	c7 95       	ror	r28
+	for (int i = 0 ; ; i++) {
+		unsigned int a = i;
+		int digits = 0;
+		_delay_ms(1000);
+		while(a) {
+			print_ASCII_by_num(a % 10 + '0', 14 - digits++);
+ 2a0:	a8 01       	movw	r20, r16
+	
+	for (int i = 0 ; ; i++) {
+		unsigned int a = i;
+		int digits = 0;
+		_delay_ms(1000);
+		while(a) {
+ 2a2:	20 97       	sbiw	r28, 0x00	; 0
+ 2a4:	79 f6       	brne	.-98     	; 0x244 <__EEPROM_REGION_LENGTH__+0x44>
+	print_string("Stopwatch: ");
+	add_new_symbol();
+	//данные (RS=1), код 01 — символ.
+	print_ASCII_by_num(1, 15);
+	
+	for (int i = 0 ; ; i++) {
+ 2a6:	3f ef       	ldi	r19, 0xFF	; 255
+ 2a8:	e3 1a       	sub	r14, r19
+ 2aa:	f3 0a       	sbc	r15, r19
+		_delay_ms(1000);
+		while(a) {
+			print_ASCII_by_num(a % 10 + '0', 14 - digits++);
+			a /= 10;
+		}
+	}
+ 2ac:	be cf       	rjmp	.-132    	; 0x22a <__EEPROM_REGION_LENGTH__+0x2a>
+
+000002ae <__umulhisi3>:
+ 2ae:	a2 9f       	mul	r26, r18
+ 2b0:	b0 01       	movw	r22, r0
+ 2b2:	b3 9f       	mul	r27, r19
+ 2b4:	c0 01       	movw	r24, r0
+ 2b6:	a3 9f       	mul	r26, r19
+ 2b8:	70 0d       	add	r23, r0
+ 2ba:	81 1d       	adc	r24, r1
+ 2bc:	11 24       	eor	r1, r1
+ 2be:	91 1d       	adc	r25, r1
+ 2c0:	b2 9f       	mul	r27, r18
+ 2c2:	70 0d       	add	r23, r0
+ 2c4:	81 1d       	adc	r24, r1
+ 2c6:	11 24       	eor	r1, r1
+ 2c8:	91 1d       	adc	r25, r1
+ 2ca:	08 95       	ret
+
+000002cc <_exit>:
+ 2cc:	f8 94       	cli
+
+000002ce <__stop_program>:
+ 2ce:	ff cf       	rjmp	.-2      	; 0x2ce <__stop_program>
